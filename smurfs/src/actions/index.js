@@ -18,11 +18,21 @@ export const FAILURE = 'FAILURE';
    D - deleteSmurf
 */
 
-export const addSmurf = () => dispatch => {
+export const getSmurf = () => dispatch => {
   dispatch({ type: LOADING });
   axios.get('http://localhost:3333/smurfs')
     .then(response => {
-      console.log(response);
+      dispatch({ type: SUCCESS, payload: response.data})
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}
+
+export const addSmurf = smurf => dispatch => {
+  dispatch({ type: LOADING });
+  axios.post('http://localhost:3333/smurfs', smurf)
+    .then(response => {
       dispatch({ type: SUCCESS, payload: response.data})
     })
     .catch(err => {

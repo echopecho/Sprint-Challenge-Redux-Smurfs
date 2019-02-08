@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SmurfList from './Smurfs/SmurfList';
 import SmurfFrom from './Smurfs/SmurfForm';
-import { addSmurf } from '../actions'
+import { getSmurf } from '../actions'
 
 import { connect } from 'react-redux';
 /*
@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
  */
 class App extends Component {
   componentDidMount() {
-    this.props.addSmurf()
+    this.props.getSmurf()
   }
 
   render() {
@@ -26,4 +26,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, { addSmurf })(App);
+export default connect(null, { getSmurf })(App);
