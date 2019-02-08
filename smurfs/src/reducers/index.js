@@ -13,6 +13,11 @@
    error: null
  }
 */
+const initialState = {
+  smurfs: [],
+  loading: false,
+  error: null
+}
 
 /*
   You'll only need one smurf reducer for this project.
@@ -21,3 +26,9 @@
   There is no need for 'combineReducers' in this project.
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
+export default (state = initialState, action) => {
+  switch(action.type) {
+    default: 
+      return state
+  }
+}
