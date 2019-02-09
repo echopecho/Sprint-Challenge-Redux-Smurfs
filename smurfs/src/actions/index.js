@@ -45,7 +45,17 @@ export const updateSmurf = (smurf, id) => dispatch => {
   dispatch({ type: LOADING });
   axios.put(`http://localhost:3333/smurfs/${id}`, smurf)
     .then(response => {
-      console.log(response)
+      dispatch({ type: SUCCESS, payload: response.data });
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}
+
+export const deleteSmurf = id => dispatch => {
+  dispatch({ type: LOADING });
+  axios.delete(`http://localhost:3333/smurfs/${id}`)
+    .then(response => {
       dispatch({ type: SUCCESS, payload: response.data });
     })
     .catch(err => {

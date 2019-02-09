@@ -2,7 +2,7 @@ import React from 'react';
 import SmurfForm from './SmurfForm';
 
 import { connect } from 'react-redux';
-import { selectSmurf } from '../../actions';
+import { selectSmurf, deleteSmurf } from '../../actions';
 
 const Smurf = props => {
   return (
@@ -11,6 +11,7 @@ const Smurf = props => {
         <SmurfForm smurf={props.smurf} selected /> :
         <p>{props.smurf.name}</p>
       }
+      <button onClick={() => props.deleteSmurf(props.smurf.id)}>Delete Smurf</button>
     </div>
   )
 }
@@ -21,4 +22,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { selectSmurf })(Smurf);
+export default connect(mapStateToProps, { selectSmurf, deleteSmurf })(Smurf);
