@@ -6,7 +6,10 @@ import { selectSmurf, deleteSmurf } from '../../actions';
 
 const Smurf = props => {
   return (
-    <div onClick={props.selected !== props.smurf.id ? () => props.selectSmurf(props.smurf.id) : null}>
+    <div 
+      className="smurf-card" 
+      onClick={props.selected !== props.smurf.id ? () => props.selectSmurf(props.smurf.id) : null}
+    >
       {props.selected === props.smurf.id ? 
         <SmurfForm smurf={props.smurf} selected /> :
         <p>{props.smurf.name}</p>

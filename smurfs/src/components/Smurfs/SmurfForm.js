@@ -43,7 +43,7 @@ class SmurfForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={this.props.selected ? 'update-form' : 'add-form'}>
         <form onSubmit={this.submitSmurf}>
           <input
             type="text"
