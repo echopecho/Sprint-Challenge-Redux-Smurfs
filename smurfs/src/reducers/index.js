@@ -1,7 +1,7 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
-import { SUCCESS } from '../actions';
+import { SUCCESS, SELECT } from '../actions';
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -17,6 +17,7 @@ import { SUCCESS } from '../actions';
 const initialState = {
   smurfs: [],
   loading: false,
+  selectedID: '',
   error: null
 }
 
@@ -30,7 +31,9 @@ const initialState = {
 export default (state = initialState, action) => {
   switch(action.type) {
     case SUCCESS:
-      return { ...state, smurfs: action.payload }
+      return { ...state, smurfs: action.payload, selectedID: '' }
+    case SELECT:
+      return { ...state, selectedID: action.id }
     default: 
       return state
   }

@@ -6,6 +6,7 @@ import axios from 'axios';
 export const LOADING = 'LOADING';
 export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
+export const SELECT = 'SELECT';
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
@@ -38,4 +39,20 @@ export const addSmurf = smurf => dispatch => {
     .catch(err => {
       console.log(err);
     })
+}
+
+export const updateSmurf = (smurf, id) => dispatch => {
+  dispatch({ type: LOADING });
+  axios.put(`http://localhost:3333/smurfs/${id}`, smurf)
+    .then(response => {
+      console.log(response)
+      dispatch({ type: SUCCESS, payload: response.data });
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}
+
+export const selectSmurf = id => {
+  return { type: SELECT, id: id }
 }
