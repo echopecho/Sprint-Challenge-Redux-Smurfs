@@ -26,7 +26,7 @@ export const getSmurf = () => dispatch => {
       dispatch({ type: SUCCESS, payload: response.data})
     })
     .catch(err => {
-      console.log(err);
+      dispatch({ type: FAILURE, payload: "Could not get Smurfs to come out and play!"})
     })
 }
 
@@ -37,7 +37,7 @@ export const addSmurf = smurf => dispatch => {
       dispatch({ type: SUCCESS, payload: response.data})
     })
     .catch(err => {
-      console.log(err);
+      dispatch({ type: FAILURE, payload: "Could not make Smurf. Wait how does one make a smurf...?"})
     })
 }
 
@@ -48,7 +48,7 @@ export const updateSmurf = (smurf, id) => dispatch => {
       dispatch({ type: SUCCESS, payload: response.data });
     })
     .catch(err => {
-      console.log(err);
+      dispatch({ type: FAILURE, payload: "Could not change Smurf. They are perfect the way they are!"})
     })
 }
 
@@ -59,7 +59,7 @@ export const deleteSmurf = id => dispatch => {
       dispatch({ type: SUCCESS, payload: response.data });
     })
     .catch(err => {
-      console.log(err);
+      dispatch({ type: FAILURE, payload: "Could not delete Smurf....you monster"})
     })
 }
 
